@@ -1,0 +1,455 @@
+/* ============ LET'S CONNECT — the closing chapter ============ */
+
+.connect {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  padding: 130px 0 0;
+}
+
+.head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 4;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.eyebrow span {
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+.h2 {
+  margin-top: 18px;
+  font-weight: 900;
+  font-size: clamp(42px, 6.4vw, 92px);
+  letter-spacing: -0.035em;
+  line-height: 1.0;
+}
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+.lede {
+  margin: 20px auto 0;
+  max-width: 480px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.cta {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------- Send a message card ---------- */
+.formCard {
+  max-width: 960px;
+  width: calc(100% - 48px);
+  margin: 52px auto 0;
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 42px 50px 38px;
+  box-shadow: 0 28px 70px -18px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  position: relative;
+  z-index: 4;
+  box-sizing: border-box;
+}
+
+.formHeader {
+  margin-bottom: 26px;
+  text-align: left;
+}
+
+.formTitle {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.formSubtitle {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.fullWidth {
+  margin-top: 18px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  background: #1c1c20;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 13px 18px;
+  font-size: 14.5px;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+  box-sizing: border-box;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #555562;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #ff6320;
+  background: #222228;
+  box-shadow: 0 0 0 3px rgba(255, 99, 32, 0.16);
+}
+
+.textarea {
+  min-height: 115px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.submitBtn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 15px 24px;
+  background: #ff6320;
+  border: none;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 24px -4px rgba(255, 99, 32, 0.35);
+  box-sizing: border-box;
+}
+
+.submitBtn:hover {
+  background: #ff7434;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(255, 99, 32, 0.5);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sendIcon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.submitBtn:hover .sendIcon {
+  transform: translate(2px, -2px);
+}
+
+.successBox {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 14px;
+  color: #86efac;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.successHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #4ade80;
+}
+
+.successActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.errorBox {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 14px;
+  color: #fca5a5;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.errorHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #f87171;
+}
+
+.resetBtn {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ff6320;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.resetBtn:hover {
+  color: #ff8146;
+}
+
+.copyBtn {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.copyBtn:hover {
+  color: #ffffff;
+}
+
+/* ---------- social cards ---------- */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 76px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 4;
+}
+.social {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px -12px rgba(20, 20, 20, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  isolation: isolate;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink-2);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+/* same interaction standard as nav links & Button: circle fill + label roll */
+.social::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 240%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ink);
+  transform: translate(-50%, 0) scale(0);
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+  z-index: -1;
+}
+.social:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+.glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: rgba(20, 20, 20, 0.06);
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--ink);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.social:hover .glyph {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+/* official brand marks (LinkedIn / GitHub) — currentColor SVGs,
+   so the circle-fill hover inverts them exactly like the text glyphs */
+.glyph svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+.roll {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.3em;
+  line-height: 1.3;
+}
+.roll span {
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.social:hover .roll span {
+  transform: translateY(-100%);
+}
+.roll span:last-child {
+  color: #fff;
+}
+.arrow {
+  font-size: 12px;
+  transition: transform 0.4s var(--ease-out-expo), color 0.3s ease;
+}
+.social:hover .arrow {
+  transform: translate(2px, -2px);
+  color: #fff;
+}
+
+/* ---------- footer ---------- */
+.footer {
+  margin-top: 96px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 26px 44px 30px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.footer b {
+  color: var(--ink);
+}
+.top {
+  font-weight: 800;
+  color: var(--ink-2);
+  transition: color 0.25s ease;
+}
+.top:hover {
+  color: var(--accent);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1040px) {
+  .connect {
+    padding-top: 100px;
+  }
+  .formCard {
+    width: calc(100% - 36px);
+    padding: 36px 36px 32px;
+  }
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 680px) {
+  .h2 {
+    font-size: clamp(32px, 8.5vw, 48px);
+  }
+  .formCard {
+    width: calc(100% - 32px);
+    margin: 36px auto 0;
+    padding: 28px 20px 24px;
+    border-radius: 20px;
+  }
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .formTitle {
+    font-size: 22px;
+  }
+  .formSubtitle {
+    font-size: 13.5px;
+  }
+  .input,
+  .textarea {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+  .submitBtn {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
+
+

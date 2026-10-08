@@ -1,0 +1,590 @@
+/* ============ HERO v5 — final composition ============
+   Kicker → headline → sub → CTAs → stage (stats · arch+portrait · stats)
+   → one quiet scroll cue. Ambient glows, geometry and particles fill the
+   flanks without touching the content. Everything breathes. */
+
+.hero {
+  position: relative;
+  background: #fff;
+  /* opaque, so the layer above covers it cleanly */
+  height: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: clamp(64px, 8.5vh, 88px);
+}
+
+/* ---------- ambient composition ---------- */
+.ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.glowL {
+  left: -160px;
+  top: 18%;
+  background: radial-gradient(circle, rgba(255, 46, 15, 0.055) 0%, rgba(255, 46, 15, 0) 68%);
+}
+
+.glowR {
+  right: -140px;
+  top: 40%;
+  background: radial-gradient(circle, rgba(20, 20, 20, 0.045) 0%, rgba(20, 20, 20, 0) 66%);
+}
+
+.ring {
+  position: absolute;
+  left: -110px;
+  bottom: 6%;
+  width: 340px;
+  height: 340px;
+  border: 1.2px solid #ededef;
+  border-radius: 50%;
+}
+
+.plusA,
+.plusB {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 600;
+  color: #d8d8db;
+  line-height: 1;
+}
+
+.plusA {
+  left: 11%;
+  top: 16%;
+}
+
+.plusB {
+  right: 9%;
+  top: 70%;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #dcdcdf;
+}
+
+.particleAccent {
+  background: rgba(255, 46, 15, 0.5);
+}
+
+/* ---------- Head ---------- */
+.head {
+  text-align: center;
+  z-index: 5;
+  padding: clamp(4px, 1.2vh, 16px) 24px 0;
+  flex-shrink: 0;
+}
+
+/* plain eyebrow — no pill, no box; the headline owns the stage */
+.kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.h1 {
+  margin-top: clamp(8px, 1.6vh, 18px);
+  font-weight: 900;
+  font-size: clamp(38px, min(6.2vw, 8.2vh), 96px);
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.row {
+  display: block;
+}
+
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.red {
+  color: var(--accent);
+}
+
+.sub {
+  margin: clamp(8px, 1.5vh, 18px) auto 0;
+  max-width: 560px;
+  font-size: clamp(14px, 1.05vw, 15.5px);
+  line-height: clamp(1.4, 1.55, 1.65);
+  color: var(--ink-2);
+}
+
+.ctas {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: clamp(10px, 1.8vh, 22px);
+  flex-shrink: 0;
+}
+
+.play {
+  font-size: 9px;
+  color: var(--accent);
+}
+
+/* ---------- Stage row ---------- */
+.stageRow {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 540px) minmax(0, 1fr);
+  align-items: end;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(6px, 1.5vh, 20px) clamp(16px, 3vw, 44px) 0;
+  min-height: 0;
+  z-index: 1;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vh, 22px);
+  padding-bottom: clamp(20px, 5vh, 60px);
+  z-index: 5;
+}
+
+.sideL {
+  align-items: flex-end;
+  padding-right: clamp(14px, 2vw, 26px);
+}
+
+.sideR {
+  align-items: flex-start;
+  padding-left: clamp(14px, 2vw, 26px);
+}
+
+.statCard {
+  background: #fff;
+  border-radius: clamp(12px, 1.2vw, 16px);
+  border: 1px solid rgba(20, 20, 20, 0.05);
+  box-shadow: 0 18px 44px -14px rgba(20, 20, 20, 0.1);
+  padding: clamp(12px, 1.5vh, 18px) clamp(14px, 1.5vw, 22px);
+  width: clamp(156px, 14vw, 196px);
+  will-change: transform;
+}
+
+.sideL .statCard:nth-child(1) {
+  transform: rotate(-4deg);
+}
+
+.sideL .statCard:nth-child(2) {
+  transform: rotate(2.5deg) translateX(clamp(-18px, -1.2vw, -10px));
+}
+
+.sideR .statCard:nth-child(1) {
+  transform: rotate(4deg);
+}
+
+.sideR .statCard:nth-child(2) {
+  transform: rotate(-2.5deg) translateX(clamp(10px, 1.2vw, 18px));
+}
+
+.statIcon {
+  width: clamp(15px, 1.3vw, 18px);
+  height: clamp(15px, 1.3vw, 18px);
+  object-fit: contain;
+  margin-bottom: clamp(4px, 0.8vh, 8px);
+}
+
+.statNum {
+  display: flex;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.statNum i {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.statLabel {
+  font-size: clamp(11px, 0.9vw, 12px);
+  font-weight: 600;
+  color: var(--ink-3);
+  margin-top: clamp(4px, 0.6vh, 6px);
+  line-height: 1.35;
+}
+
+/* ---------- Stage: arch + portrait (the focal point) ---------- */
+.stage {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  min-height: 0;
+  padding-bottom: clamp(8px, 1.5vh, 20px);
+}
+
+.arch {
+  position: absolute;
+  bottom: clamp(8px, 1.5vh, 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(420px, 78%);
+  height: min(94%, 500px);
+  background: #f4f4f5;
+  border-radius: 320px 320px 24px 24px;
+  z-index: 1;
+}
+
+.archLine {
+  position: absolute;
+  bottom: calc(clamp(8px, 1.5vh, 20px) + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateX(-14px);
+  width: min(420px, 78%);
+  height: min(94%, 500px);
+  border: 1.2px solid #e6e6e8;
+  border-radius: 320px 320px 24px 24px;
+  z-index: 0;
+}
+
+.portrait {
+  position: relative;
+  z-index: 3;
+  width: min(390px, 76%);
+  height: min(93%, 485px);
+  max-height: clamp(240px, 42vh, 480px);
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 310px 310px 22px 22px;
+  box-shadow: 0 28px 56px -16px rgba(20, 20, 20, 0.22);
+  will-change: transform;
+}
+
+/* ---------- chip rails — larger, legible ---------- */
+.chipLayer {
+  position: absolute;
+  inset: 0 0 24px 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  background: #fff;
+  border: 1px solid rgba(20, 20, 20, 0.05);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px -8px rgba(20, 20, 20, 0.15);
+  will-change: transform;
+  pointer-events: auto;
+  transition: scale var(--dur-fast) var(--ease-out-expo), box-shadow var(--dur-fast) ease;
+}
+
+.chip:hover {
+  scale: 1.12;
+  box-shadow: 0 20px 44px -8px rgba(20, 20, 20, 0.23);
+}
+
+.chip img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.chipWide {
+  width: auto;
+  padding: 0 18px;
+}
+
+.chipWide img {
+  width: auto;
+  height: 24px;
+}
+
+/* ---------- script annotations ---------- */
+.annot {
+  position: absolute;
+  left: -14%;
+  top: -4%;
+  z-index: 5;
+  font-family: var(--font-script), cursive;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink-2);
+  rotate: -4deg;
+  text-align: left;
+  pointer-events: none;
+}
+
+.annot b {
+  color: var(--accent);
+}
+
+.stackLabel {
+  position: absolute;
+  right: -12%;
+  top: -6%;
+  z-index: 5;
+  font-family: var(--font-script), cursive;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--ink-2);
+  rotate: 4deg;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.labelArrow {
+  position: absolute;
+  left: 4px;
+  bottom: -32px;
+  width: 38px;
+  color: var(--ink-3);
+}
+
+/* ---------- bottom: one quiet cue ---------- */
+.scrollCue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: clamp(6px, 1vh, 14px) 0 clamp(8px, 1.6vh, 20px);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+.cueArrow {
+  font-size: 14px;
+  color: var(--accent);
+  animation: cue 1.8s ease-in-out infinite;
+}
+
+@keyframes cue {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  55% {
+    transform: translateY(6px);
+    opacity: 0.35;
+  }
+}
+
+/* ============ HEIGHT-CONSTRAINED DESKTOPS (e.g. 1366×768, 1280×720) ============ */
+@media (max-height: 750px) {
+  .hero {
+    padding-top: clamp(54px, 7vh, 66px);
+  }
+
+  .h1 {
+    font-size: clamp(32px, 6.6vh, 64px);
+    margin-top: 6px;
+  }
+
+  .sub {
+    margin-top: 6px;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .ctas {
+    margin-top: 10px;
+  }
+
+  .stageRow {
+    padding-top: 2px;
+  }
+
+  .side {
+    padding-bottom: 16px;
+    gap: 8px;
+  }
+
+  .portrait {
+    max-height: 42vh;
+  }
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1180px) {
+  .hero {
+    padding-top: clamp(68px, 9vh, 88px);
+    gap: clamp(16px, 2.5vh, 28px);
+    min-height: 100svh;
+    height: auto;
+  }
+
+  .stageRow {
+    grid-template-columns: 1fr;
+    gap: clamp(16px, 2.5vh, 24px);
+    padding: 0 24px;
+  }
+
+  .side {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    order: 2;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .sideL .statCard,
+  .sideR .statCard {
+    transform: none !important;
+  }
+
+  .sideR {
+    order: 3;
+  }
+
+  .stage {
+    order: 1;
+    min-height: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
+  .arch,
+  .archLine {
+    bottom: 0;
+    width: min(340px, 80%);
+    height: 94%;
+  }
+
+  .portrait {
+    height: auto;
+    max-height: min(40vh, 340px);
+    max-width: min(320px, 78vw);
+  }
+
+  .annot,
+  .stackLabel,
+  .ring,
+  .plusA,
+  .plusB {
+    display: none;
+  }
+
+  .chip {
+    width: 50px;
+    height: 50px;
+  }
+
+  .chip img {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 68px;
+    gap: 14px;
+  }
+
+  .head {
+    padding: 0 16px;
+  }
+
+  .h1 {
+    font-size: clamp(32px, 9.5vw, 46px);
+    margin-top: 8px;
+  }
+
+  .sub {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+
+  .ctas {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .stageRow {
+    padding: 0 16px;
+    gap: 14px;
+  }
+
+  .stage {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .portrait {
+    max-height: min(36vh, 280px);
+    max-width: min(260px, 75vw);
+    border-radius: 200px 200px 18px 18px;
+  }
+
+  .arch,
+  .archLine {
+    width: min(280px, 86%);
+  }
+
+  .side {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 8px;
+  }
+
+  .statCard {
+    width: calc(50% - 6px);
+    min-width: 136px;
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  .statNum {
+    font-size: 22px;
+  }
+
+  .statLabel {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  .glow {
+    width: 300px;
+    height: 300px;
+  }
+
+  .scrollCue {
+    padding: 8px 0 14px;
+  }
+}

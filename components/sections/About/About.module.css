@@ -1,0 +1,201 @@
+/* ============ ABOUT — storytelling section ============ */
+
+.about {
+  position: relative;
+  background: #fff;
+  height: auto;
+  min-height: 100svh;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 96px 44px 100px;
+}
+
+/* ---------- header ---------- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 26px;
+}
+.eyebrow span {
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+.eyebrow::after {
+  content: "";
+  flex: 0 0 34px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.h2 {
+  font-weight: 900;
+  font-size: clamp(36px, 4.6vw, 62px);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+/* ---------- narrative: intro paragraphs + signature ---------- */
+.narrative {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  margin-top: 56px;
+  align-items: start;
+}
+
+.narrativeLead {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.lead {
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.signatureWrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.signatureLine {
+  width: 32px;
+  height: 1.5px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.signature {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(16px, 1.3vw, 18px);
+  color: var(--ink-2);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.narrativeBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.narrativeBody p {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+/* ---------- capability blocks (in metrics band) ---------- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 84px;
+}
+
+.metric {
+  border-top: 2px solid var(--ink);
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.capLabel {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.capTitle {
+  font-size: clamp(18px, 1.5vw, 21px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.capDesc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* ---------- education + next ---------- */
+.edu {
+  margin-top: 56px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.next {
+  margin-top: 34px;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1100px) {
+  .wrap {
+    padding: 90px 24px 100px;
+  }
+  .narrative {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 44px;
+  }
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 24px;
+    margin-top: 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .h2 {
+    font-size: clamp(26px, 7.5vw, 34px);
+  }
+  .lead {
+    font-size: 18.5px;
+    line-height: 1.55;
+  }
+  .narrativeBody p {
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+  .metrics {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .edu {
+    margin-top: 40px;
+    font-size: 13px;
+  }
+}

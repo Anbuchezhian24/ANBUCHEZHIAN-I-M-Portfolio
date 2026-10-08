@@ -1,0 +1,282 @@
+/* ============ THE PEOPLE BEHIND THE WORK — DriftWall ============
+   The reference's spatial wall, rendered in the portfolio's own language:
+   white ground (not #060010), the site's type scale, and NO tile dimming —
+   depth reads through perspective, scale and a soft edge mask so every
+   photograph stays bright and true to its colour. */
+
+/* A full-screen frame: the title sits at the top of the composition and the
+   wall takes ALL remaining height, centred in the viewport. Previously this
+   section was taller than its frame, so the wall was pushed out of the
+   bottom of the scene and clipped — which is what read as "images in the
+   bottom-right with empty space above". */
+.gallery {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+  padding: clamp(48px, 7vh, 88px) 0 0;
+}
+
+/* ---------- heading ---------- */
+.head {
+  position: relative;
+  z-index: 4;
+  flex: 0 0 auto;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.eyebrow span {
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+/* the section names itself, unmistakably and above everything else */
+.h2 {
+  margin-top: 16px;
+  font-weight: 900;
+  font-size: clamp(34px, 5vw, 72px);
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+.lede {
+  margin-top: 16px;
+  font-size: clamp(14px, 1.15vw, 16px);
+  line-height: 1.6;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* Short viewports: the title gives room back to the wall, so the images stay
+   the hero of the frame instead of being squeezed into a strip. */
+@media (max-height: 820px) {
+  .gallery {
+    padding-top: clamp(34px, 5vh, 56px);
+  }
+  .h2 {
+    margin-top: 10px;
+    font-size: clamp(30px, 6vh, 52px);
+  }
+  .lede {
+    margin-top: 10px;
+    font-size: 13.5px;
+  }
+  .foot {
+    padding: 4px 44px 18px;
+  }
+}
+@media (max-height: 660px) {
+  .lede {
+    display: none;
+  }
+}
+
+/* ---------- the wall: perspective 1200, tilt 16°, turn -14° ---------- */
+.wallView {
+  position: relative;
+  /* takes every pixel the title and footer don't need — this is what makes
+     the wall the hero of the frame instead of a widget below the fold */
+  flex: 1;
+  min-height: 0;
+  margin-top: clamp(14px, 2.4vh, 30px);
+  /* a longer lens: the plane still has depth, but the projection no longer
+     magnifies the near side off the edge of the frame */
+  perspective: 2000px;
+  perspective-origin: 50% 44%;
+  overflow: hidden;
+}
+.wall {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 92%;
+  height: 124%;
+  /* gentle perspective turn so images stay flat, clear, and undistorted */
+  transform: translate(-50%, -48%) rotateX(6deg) rotateY(-3deg);
+  transform-style: preserve-3d;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 5), 1fr);
+  gap: clamp(16px, 1.6vw, 26px);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.col {
+  overflow: hidden;
+  contain: layout paint;
+}
+.colInner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.4vw, 22px);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* Each tile preserves its photograph's true aspect ratio — never cropped,
+   showing the complete original image in full size. */
+.tile {
+  /* Keyed to measured wall height with generous room */
+  --tile-h: calc(var(--wall-h, 60vh) * 0.52);
+  position: relative;
+  width: min(100%, calc(var(--tile-h) * var(--ar)));
+  margin: 0 auto;
+  aspect-ratio: var(--ar);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0d0d12;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 40px -14px rgba(20, 20, 20, 0.18);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: paint;
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.35s ease;
+  will-change: transform;
+}
+.tile:hover {
+  transform: scale(1.045) translateZ(24px);
+  box-shadow: 0 28px 60px -16px rgba(20, 20, 20, 0.28);
+}
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
+
+/* Subtle edge mask — keeps images crisp while gently blending into background */
+.fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 5%,
+      rgba(255, 255, 255, 0) 95%, #fff 100%),
+    linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 2.5%,
+      rgba(255, 255, 255, 0) 97.5%, #fff 100%);
+}
+
+/* ---------- foot ---------- */
+.foot {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max);
+  width: 100%;
+  margin: 0 auto;
+  padding: 6px 44px 30px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.count {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+
+
+
+/* ---------- responsive: thin the wall, don't shrink it to mush ---------- */
+@media (max-width: 1399px) {
+  .wall {
+    --cols: 4;
+    width: 88%;
+  }
+}
+@media (max-width: 1099px) {
+  .wall {
+    --cols: 3;
+    /* less rotation here, so the projection spreads less and the wall can
+       be laid out wider */
+    width: 88%;
+    transform: translate(-50%, -48%) rotateX(11deg) rotateY(-6deg);
+  }
+  .wallView {
+  }
+  .tile {
+  }
+}
+@media (max-width: 699px) {
+  .gallery {
+    padding: 76px 0 0;
+  }
+  .h2 {
+    font-size: clamp(28px, 7vw, 40px);
+  }
+  .wall {
+    --cols: 2;
+    /* almost flat on a phone: depth must never cost visibility */
+    width: 90%;
+    transform: translate(-50%, -48%) rotateX(8deg) rotateY(-3deg);
+  }
+  /* a proportionally wider dissolve — 5% of a phone is only ~19px, too
+     narrow to absorb the edge columns */
+  .fade {
+    background:
+      linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 12%,
+        rgba(255, 255, 255, 0) 88%, #fff 100%),
+      linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 11%,
+        rgba(255, 255, 255, 0) 89%, #fff 100%);
+  }
+  .wallView {
+    margin-top: 18px;
+  }
+  .tile {
+  }
+  .foot {
+    padding: 4px 24px 24px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    gap: 14px;
+  }
+  .hint {
+    text-align: right;
+  }
+}
+
+/* motion off: a calm, readable wall with no drift */
+@media (prefers-reduced-motion: reduce) {
+  .wall {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+  .wallView {
+    height: auto;
+    perspective: none;
+    padding: 0 24px 28px;
+  }
+  .fade {
+    display: none;
+  }
+}
