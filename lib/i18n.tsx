@@ -54,7 +54,8 @@ export const DICT: Record<string, Entry> = {
   "hero.scroll": { en: "Scroll to Explore", fr: "Faites défiler" },
   "stat.projects": { en: "Projects Completed", fr: "Projets réalisés" },
   "stat.years": { en: "Years of Experience", fr: "Ans d’expérience" },
-  "stat.countries": { en: "Countries Worked With", fr: "Pays collaborés" },
+  "stat.technologies": { en: "Technologies Explored", fr: "Technologies explorées" },
+  "stat.countries": { en: "Technologies Explored", fr: "Technologies explorées" },
   "stat.satisfaction": { en: "Client Satisfaction", fr: "Satisfaction client" },
 
   /* ---------------- about ---------------- */

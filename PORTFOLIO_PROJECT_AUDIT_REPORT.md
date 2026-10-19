@@ -254,7 +254,7 @@ graph TD
 - **`components/sections/Hero/Hero.tsx` (`Hero.module.css`):**
   - **Props:** None.
   - **State:** None (GSAP-driven).
-  - **Behavior:** Entrance timeline triggers when revealed by Intro tunnel. Counts up 4 stat cards (Projects: 20+, Years: 5+, Countries: 10+, Satisfaction: 100%). Multi-layer mouse parallax on ambient glows, rings, particles, and portrait arch.
+  - **Behavior:** Entrance timeline triggers when revealed by Intro tunnel. Counts up 4 stat cards (Projects: 20+, Years: 2+, Technologies: 20+, Satisfaction: 100%). Multi-layer mouse parallax on ambient glows, rings, particles, and portrait arch.
 
 #### 3. About
 - **`components/sections/About/About.tsx` (`About.module.css`):**
