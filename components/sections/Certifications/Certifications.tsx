@@ -15,7 +15,6 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { gsap, ScrollTrigger, EASE } from "@/lib/gsap";
 import { sceneScrub } from "@/lib/scene";
 import {
@@ -53,7 +52,6 @@ const TONE = ["dark", "light", "dark", "light", "dark"] as const;
 
 export default function Certifications() {
   const root = useRef<HTMLElement>(null);
-  const router = useRouter();
   const { t, lang } = useLang();
 
   useEffect(() => {

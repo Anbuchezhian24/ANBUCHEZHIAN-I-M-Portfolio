@@ -2,9 +2,9 @@
 
 **Audit Date:** September 22, 2026  
 **Auditor:** Senior Full-Stack Engineer, Software Architect, UI/UX Engineer, and Code Auditor  
-**Repository Name:** `-Gireesh-Portfolio` (Package: `gireesh-portfolio`)  
-**Repository Branch:** `master` (Clean working tree)  
-**Target Path:** `e:\project\-Gireesh-Portfolio`  
+**Repository Name:** `ANBUCHEZHIAN-I-M-Portfolio` (Package: `anbu-portfolio`)  
+**Repository Branch:** `main` (Clean working tree)  
+**Target Path:** `e:\project\ANBUCHEZHIAN I M - Portfolio`  
 **Report File:** `PORTFOLIO_PROJECT_AUDIT_REPORT.md`  
 
 ---

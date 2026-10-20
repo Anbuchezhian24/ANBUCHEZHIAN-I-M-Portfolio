@@ -11,7 +11,7 @@
  *   floor/ceiling/wall slab slots · vibrant color materials · image textures
  *   with fade-in · fog · camera-chase interpolation · DPR cap · resize.
  * · The canvas renders opaque (the tunnel's own dark world). A raster of
- *   "GIREESH" — drawn with the page's real loaded display font — is applied
+ *   "ANBU" — drawn with the page's real loaded display font — is applied
  *   as a CSS mask ON the canvas element. Masking happens in the compositor:
  *   the WebGL loop keeps running untouched, so the 3D world moves while the
  *   stationary letters act as windows into it.

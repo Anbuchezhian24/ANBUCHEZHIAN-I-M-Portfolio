@@ -18,7 +18,7 @@ export type Study = {
 export type StudyFr = Partial<Study>;
 
 /* Card / case-page cover.
-   ⚠ Only VERIFIED assets go in `src` — official brand marks, or Gireesh's
+   ⚠ Only VERIFIED assets go in `src` — official brand marks, or Anbu's
    own project captures. `variant: "photo"` renders full-bleed; "brand"
    (default) centres the mark on its ground. Projects with no asset get a
    designed typographic cover (`mark`), never a stock image. */

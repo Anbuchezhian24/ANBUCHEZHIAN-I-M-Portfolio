@@ -1,9 +1,8 @@
 /* THE PEOPLE BEHIND THE WORK — the personal archive.
  *
- * ⚠ SOURCING: every frame is one of Gireesh's own supplied photographs,
- * in the order he numbered them (Gallery 1 → 14). Nothing is stock,
- * generated, substituted or repeated. He supplied 14 of the 15 he listed —
- * Gallery 15 never arrived; add it to the end of this array when it does.
+ * ⚠ SOURCING: every frame is one of Anbu's own supplied photographs,
+ * in the order numbered (Gallery 1 → 14). Nothing is stock,
+ * generated, substituted or repeated. 14 authentic frames.
  *
  * `ar` is each file's TRUE aspect ratio, so a frame is only ever cropped by
  * object-fit, never scaled non-uniformly. The variety in frame widths comes
@@ -11,7 +10,7 @@
  *
  * `scale` and `y` are the curation: a little rhythm so the rail reads as a
  * hung archive rather than a filmstrip. Frames 9 and 10 — the two team
- * photographs Gireesh marked as belonging in the middle — sit at the centre
+ * photographs marked as belonging in the middle — sit at the centre
  * of the sequence and carry the largest scale. */
 
 export type Frame = {

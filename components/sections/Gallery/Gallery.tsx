@@ -8,7 +8,7 @@
  *   speed 42px/s · direction up · variance 0.45 · parallax 0.6 · lift 64
  *   fade 0.6 · radius 14 · roll 0 · pauseOnHover false · grayscale false
  *
- * Two deliberate departures from the reference, both to keep Gireesh's own
+ * Two deliberate departures from the reference, both to keep Anbu's own
  * photographs intact:
  *   · overlayColor #060010 → the portfolio's white ground, as instructed
  *   · dim 0.55 → tiles are NOT darkened. Depth reads through scale, the

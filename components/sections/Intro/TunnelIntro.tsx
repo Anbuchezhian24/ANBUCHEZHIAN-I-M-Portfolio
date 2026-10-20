@@ -2,7 +2,7 @@
 
 /*
  * SECTION 01 — THE OPENING. The live Three.js Gallery Tunnel seen through
- * "GIREESH", stretched into a ~5.5-viewport cinematic journey that hands
+ * "ANBU", stretched into a ~5.5-viewport cinematic journey that hands
  * over to the real Hero.
  *
  * Journey design:
